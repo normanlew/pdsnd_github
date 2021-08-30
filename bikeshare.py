@@ -1,10 +1,13 @@
 import time
 import pandas as pd
 import numpy as np
-
+ 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
+
+months = ["january", "february", "march", "april", "may", "june"]
+days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
 def get_filters():
     """
@@ -24,16 +27,13 @@ def get_filters():
 
     # get user input for month (all, january, february, ... , june)
     month = ""
-    list_of_months = ["all", "january", "february", "march", "april", "may", "june"]
-    while (month not in list_of_months):
+    while (month not in months and month != "all"):
         month = input("Which month would you like statistics on?  Enter \"January\", \"February\", \"March\", \"April\", "\
             "\"May\", \"June\", or \"All\" for all months January through June: ").lower()
 
-
     # get user input for day of week (all, monday, tuesday, ... sunday)
     day = ""
-    list_of_days = ["all", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
-    while (day not in list_of_days):
+    while (day not in days and day != "all"):
         day = input("Which day would you like statistics on?  Enter \"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", "\
             "\"Friday\", \"Saturday\", \"Sunday\", or \"All\" for everyday: ").lower()
 
@@ -69,7 +69,6 @@ def load_data(city, month, day):
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
-        months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month)
     
         # filter by month to create the new dataframe
@@ -77,7 +76,6 @@ def load_data(city, month, day):
 
     # filter by day of week if applicable
     if day != 'all':
-        days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
         day = days.index(day)
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day]
@@ -92,14 +90,12 @@ def time_stats(df):
     start_time = time.time()
 
     # display the most common month
-    list_of_months = ["January", "February", "March", "April", "May", "June"]
-    most_common_month = list_of_months[df['month'].mode()[0] - 1]
-    print("The most common month of travel is {}".format(most_common_month))
+    most_common_month = months[df['month'].mode()[0] - 1]
+    print("The most common month of travel is {}".format(most_common_month.capitalize()))
 
     # display the most common day of week
-    list_of_days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    most_common_day = list_of_days[df['day_of_week'].mode()[0]]
-    print("The most common day of travel is {}".format(most_common_day))
+    most_common_day = days[df['day_of_week'].mode()[0]]
+    print("The most common day of travel is {}".format(most_common_day.capitalize()))
 
     # display the most common start hour
     most_common_start_hour = df['Start Time'].dt.hour.mode()[0]
