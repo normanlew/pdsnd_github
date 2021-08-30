@@ -20,16 +20,14 @@ def get_filters():
     city = ""
     list_of_cities = ["chicago", "new york city", "washington"]
     while (city not in list_of_cities):
-        city = input("Which city would you like statistics on?  Enter \"Chicago\", \"New York City\", or \"Washington\": ")
-        city = city.lower()
+        city = input("Which city would you like statistics on?  Enter \"Chicago\", \"New York City\", or \"Washington\": ").lower()
 
     # get user input for month (all, january, february, ... , june)
     month = ""
     list_of_months = ["all", "january", "february", "march", "april", "may", "june"]
     while (month not in list_of_months):
         month = input("Which month would you like statistics on?  Enter \"January\", \"February\", \"March\", \"April\", "\
-            "\"May\", \"June\", or \"All\" for all months January through June: ")
-        month = month.lower()
+            "\"May\", \"June\", or \"All\" for all months January through June: ").lower()
 
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
@@ -37,8 +35,7 @@ def get_filters():
     list_of_days = ["all", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
     while (day not in list_of_days):
         day = input("Which day would you like statistics on?  Enter \"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", "\
-            "\"Friday\", \"Saturday\", \"Sunday\", or \"All\" for everyday: ")
-        day = day.lower()
+            "\"Friday\", \"Saturday\", \"Sunday\", or \"All\" for everyday: ").lower()
 
 
     print('-'*40)
