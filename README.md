@@ -17,3 +17,6 @@ This project began on August 11, 2021.  The README for this project began on Aug
 * The bikeshare.py template was provided by [Udacity's Programming for Data Science with Python course](https://www.udacity.com/course/programming-for-data-science-nanodegree--nd104).  
 * Bike share data was provided by [Motivate](https://www.motivateco.com), a bike share provider for many major cities in the U.S.
 
+#### License
+Feel free to use this code however you want, with one exception.  If you are taking the Udacity Python course that includes this project, please do your own work.  Plagiarism is not allowed.
+
