@@ -10,6 +10,9 @@ The project is written in **Python** and utilizes the _Pandas_ and _Numpy_ stati
 * washington.csv
 * new_york_city.csv
 
+#### Running program
+To run this program, use `python bikeshare.py`
+
 #### Project Dates
 This project began on August 11, 2021.  The README for this project began on August 26, 2021.
 
